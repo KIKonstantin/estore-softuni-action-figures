@@ -2,34 +2,37 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const cors = require('cors');
+const cors = require("cors");
+require("dotenv/config");
+const authJwt = require('./helpers/jwt');
+const errorHandler = require("./helpers/error-handler");
+const CONNECTION_STRING = "mongodb://127.0.0.1:27017/ecomm-action-figures";
+const port = 3000;
 
 app.use(cors());
-app.options('*', cors);
+app.options("*", cors);
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+
+// USER AUTHORIZATION 
+// app.use(authJwt());
 
 
 // routes
-const productRouter = require('./routers/productRoutes');
-const categoryRoutes = require('./routers/categoryRoutes');
-const userRoutes = require('./routers/userRoutes');
-const orderRoutes = require('./routers/orderRoutes');
+const productRouter = require("./routers/productRoutes");
+const categoryRoutes = require("./routers/categoryRoutes");
+const userRoutes = require("./routers/userRoutes");
+const orderRoutes = require("./routers/orderRoutes");
 
-app.use('/products', productRouter);
-app.use('/categories', categoryRoutes);
-app.use('/user', userRoutes);
-app.use('/order', orderRoutes);
-
-const port = 3000;
-CONNECTION_STRING = "mongodb://127.0.0.1:27017/ecomm-action-figures";
-
-
-
-
+app.use("/products", productRouter);
+app.use("/categories", categoryRoutes);
+app.use("/users", userRoutes);
+app.use("/orders", orderRoutes);
+app.use(errorHandler)
 mongoose
     .connect(CONNECTION_STRING, {
         useNewUrlParser: true,
