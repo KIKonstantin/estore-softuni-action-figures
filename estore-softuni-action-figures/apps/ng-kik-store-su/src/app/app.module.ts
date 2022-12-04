@@ -7,7 +7,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { UiModule} from '@estore/ui'
+import { UiModule } from '@estore/ui';
+import { AccordionModule } from 'primeng/accordion';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 const routes: Routes = [
     {
         path: '',
@@ -21,8 +23,8 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent],
-    imports: [BrowserModule, RouterModule.forRoot(routes), UiModule],
+    imports: [BrowserModule, RouterModule.forRoot(routes), UiModule, AccordionModule, BrowserAnimationsModule],
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
