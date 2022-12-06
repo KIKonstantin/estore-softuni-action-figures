@@ -18,7 +18,8 @@
             "@estore/orders": ["libs/orders/src/index.ts"],
             "@estore/products": ["libs/products/src/index.ts"],
             "@estore/ui": ["libs/ui/src/index.ts"],
-            "@estore/users": ["libs/users/src/index.ts"]
+            "@estore/users": ["libs/users/src/index.ts"],
+            "@env": ["./environments/environment.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
