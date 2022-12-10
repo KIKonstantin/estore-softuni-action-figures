@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { CategoriesService, Category } from '@estore/products';
 import { MessageService } from 'primeng/api';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
 import { timer } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 @Component({

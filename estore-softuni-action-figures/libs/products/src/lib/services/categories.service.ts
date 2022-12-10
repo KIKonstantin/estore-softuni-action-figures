@@ -13,21 +13,21 @@ export class CategoriesService {
   }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${environment.apiUrlCategory}`)
+    return this.http.get<Category[]>(environment.apiUrlCategory)
   }
 
   getCategory(categoryId: string): Observable<Category> {
-    return this.http.get<Category>(`${environment.apiUrlCategory}${categoryId}`)
+    return this.http.get<Category>(environment.apiUrlCategory + categoryId)
   }
 
   createCategory(category: Category): Observable<Category> {
-    return this.http.post<Category>(`${environment.apiUrlCategory}`, category);
+    return this.http.post<Category>(environment.apiUrlCategory, category);
   }
   updateCategory(category: Category): Observable<Category> {
-    return this.http.put<Category>(`${environment.apiUrlCategory}` + category._id, category);
+    return this.http.put<Category>(environment.apiUrlCategory + category._id, category);
   }
   deleteCategory(categoryId: string): Observable<string> {
-    return this.http.delete<string>(`${environment.apiUrlCategory}${categoryId}`);
+    return this.http.delete<string>(environment.apiUrlCategory + categoryId);
   }
 
 }

@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv/config");
 const authJwt = require('./helpers/jwt');
+const path = require('path');
 const errorHandler = require("./helpers/error-handler");
 const CONNECTION_STRING = "mongodb://127.0.0.1:27017/ecomm-action-figures";
 const port = 3000;
@@ -15,11 +16,10 @@ app.options("*", cors);
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan("tiny"));
-app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
-
 // USER AUTHORIZATION 
-// app.use(authJwt());
+// app.use(authJwt()); 
+app.use(morgan("tiny"));
+app.use("/public/uploads", express.static(path.join(__dirname, '/public/uploads')));
 
 
 // routes

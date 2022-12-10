@@ -28,8 +28,8 @@
                                 <label for="email">Email</label>
                                 <input formControlName="email" id="email" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
                                 <small *ngIf="userForm['email'].invalid && isSubmitted" class="p-error">
-                                    <span *ngIf="userForm['email'].errors['required']">Email is required</span>
-                                    <span *ngIf="userForm.email.errors['email']">Email is invalid</span>
+                                    <!-- <span *ngIf="userForm['email'].errors['required']">Email is required</span> -->
+                                    <!-- <span *ngIf="userForm['email'].errors['email']">Email is invalid</span> -->
                                 </small>
                             </div>
                             <div class="field col">
