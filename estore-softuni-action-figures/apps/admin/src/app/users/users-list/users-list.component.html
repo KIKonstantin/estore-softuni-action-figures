@@ -35,8 +35,8 @@
                             </td>
                             <td>{{ getCountryName(user['country']) }}</td>
                             <td>
-                                <p-button (click)="deleteUser(user._id)" styleClass="p-button-danger mr-2 " icon="pi pi-trash "> </p-button>
-                                <p-button (click)="updateUser(user._id)" styleClass="p-button-success " icon="pi pi-pencil "> </p-button>
+                                <p-button (click)="updateUser(user._id)" styleClass="p-button-success p-button-rounded " icon="pi pi-pencil "> </p-button>
+                                <p-button (click)="deleteUser(user._id)" styleClass="p-button-danger p-button-rounded ml-2 " icon="pi pi-trash "> </p-button>
                             </td>
                         </tr>
                     </ng-template>

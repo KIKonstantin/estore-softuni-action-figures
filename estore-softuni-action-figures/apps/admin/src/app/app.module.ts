@@ -35,7 +35,11 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { TagModule } from 'primeng/tag';
-import {InputMaskModule} from 'primeng/inputmask';
+import { InputMaskModule } from 'primeng/inputmask';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
+import {FieldsetModule} from 'primeng/fieldset';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 const routes: Routes = [
     {
@@ -81,6 +85,14 @@ const routes: Routes = [
             {
                 path: 'users/form/:id',
                 component: UsersFormComponent
+            },
+            {
+                path: 'orders',
+                component: OrdersListComponent
+            },
+            {
+                path: 'orders/:id',
+                component: OrdersDetailComponent
             }
         ]
     }
@@ -97,7 +109,9 @@ const routes: Routes = [
         ProductsListComponent,
         ProductsFormComponent,
         UsersListComponent,
-        UsersFormComponent
+        UsersFormComponent,
+        OrdersListComponent,
+        OrdersDetailComponent
     ],
     imports: [
         BrowserModule,
@@ -120,7 +134,9 @@ const routes: Routes = [
         DropdownModule,
         EditorModule,
         TagModule,
-        InputMaskModule
+        InputMaskModule,
+        FieldsetModule,
+        ProgressSpinnerModule
     ],
     providers: [CategoriesService, MessageService, ConfirmationService],
     bootstrap: [AppComponent]

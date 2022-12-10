@@ -1,0 +1,34 @@
+.d-item {
+    display: flex;
+    text-align: center;
+    color: var(--surface-0);
+    justify-content: space-around;
+    align-items: center;
+    .pi {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+    .name {
+        font-size: 1.5em;
+    }
+    .number {
+        font-size: 2em;
+        margin-top: 50px;
+    }
+}
+
+.d-orders {
+    background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+}
+
+.d-products {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+
+.d-sales {
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+}
+
+.d-users {
+    background-image: linear-gradient(to top, #c79081 0%, #dfa579 100%);
+}

@@ -6,7 +6,7 @@ const router = express.Router();
 // GET
 router.get("/", async(req, res) => {
     const orderList = await Order.find()
-        .populate("user", "name")
+        .populate("user")
         .sort("dateOrdered");
     if (!orderList) {
         res.status(500).json({ success: false });
