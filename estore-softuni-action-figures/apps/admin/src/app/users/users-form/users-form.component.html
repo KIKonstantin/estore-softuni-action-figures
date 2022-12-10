@@ -1,0 +1,79 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card [header]="editMode ? 'Edit User' : 'Add User'" subheader="Add or edit your users">
+        <div class="grid mb-5">
+            <div class="col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-left"></div>
+                    <div class="p-toolbar-right">
+                        <p-button styleClass="p-button-secondary mr-2" label="Cancel" icon="pi pi-arrow-circle-left" routerLink="/users"></p-button>
+                        <p-button styleClass="p-button-primary" [label]="editMode ? 'Update' : 'Create'" icon="pi pi-plus" (click)="onSubmit()"></p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <!-- Reactive Form -->
+                <form [formGroup]="form">
+                    <div class="card">
+                        <h5>User Form</h5>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="name">Name</label>
+                                <input formControlName="name" id="name" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="userForm['name'].invalid && isSubmitted" class="p-error">Name is required</small>
+                            </div>
+                            <div class="field col">
+                                <label for="email">Email</label>
+                                <input formControlName="email" id="email" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="userForm['email'].invalid && isSubmitted" class="p-error">
+                                    <span *ngIf="userForm['email'].errors['required']">Email is required</span>
+                                    <span *ngIf="userForm.email.errors['email']">Email is invalid</span>
+                                </small>
+                            </div>
+                            <div class="field col">
+                                <label for="password">Password</label>
+                                <input formControlName="password" id="password" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="userForm['password'].invalid && isSubmitted" class="p-error">Password is required</small>
+                            </div>
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="phone">Phone</label><br>
+                                <p-inputMask formControlName="phone" mask="(+359) 999 99 9999"></p-inputMask>
+                                <small *ngIf="userForm['phone'].invalid && isSubmitted" class="p-error">Phone is required</small>
+                            </div>
+                            <div class="field col-4">
+                                <label for="isAdmin">Is Admin</label><br />
+                                <p-inputSwitch formControlName="isAdmin"></p-inputSwitch>
+                            </div>
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="street">Street</label>
+                                <input formControlName="street" id="street" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                            </div>
+                            <div class="field col">
+                                <label for="apartment">Apartment</label>
+                                <input formControlName="apartment" id="apartment" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                            </div>
+                            <div class="field col">
+                                <label for="city">City</label>
+                                <input formControlName="city" id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                            </div>
+                            <div class="field col">
+                                <label for="zip">Zip</label>
+                                <input formControlName="zip" id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                            </div>
+                            <div class="field col">
+                                <label for="country">Country</label><br>
+                                <p-dropdown formControlName="country" optionLabel="name" optionValue="id" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country"></p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </p-card>
+</div>
