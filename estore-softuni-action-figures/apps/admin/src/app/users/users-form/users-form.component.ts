@@ -6,7 +6,10 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { timer } from 'rxjs';
 
-
+type Country = {
+    id: string,
+    country: string
+}
 @Component({
     selector: 'admin-users-form',
     templateUrl: './users-form.component.html',
@@ -17,15 +20,16 @@ export class UsersFormComponent implements OnInit {
     editMode = false;
     currUserId? : string;
     isSubmitted = false;
+    countries: Country[] = [];
     constructor(
         private usersService: UsersService,
         private formBuilder: FormBuilder,
         private messageService: MessageService,
         private location: Location,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
     ) { }
     ngOnInit(): void {
-        console.log(this.userForm)
+        this._getCountries();
         this._initUserForm();
         this._checkEditMode();
     }
@@ -137,7 +141,9 @@ export class UsersFormComponent implements OnInit {
             }
         })
     }
-
+    private _getCountries(){
+        this.countries = this.usersService.getCountries();
+    }
     get userForm(){
         return this.form.controls;
     }
