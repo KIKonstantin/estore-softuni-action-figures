@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
@@ -40,7 +40,7 @@ import { OrdersListComponent } from './pages/orders/orders-list/orders-list.comp
 import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import { AuthGuard, UsersModule } from '@estore/users';
+import { AuthGuard, JwtInterceptor, UsersModule } from '@estore/users';
 
 const routes: Routes = [
     {
@@ -50,10 +50,6 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: DashboardComponent
-            },
-            {
-                path: 'dashboard',
                 component: DashboardComponent
             },
             {
@@ -145,7 +141,12 @@ const routes: Routes = [
         ProgressSpinnerModule,
         UsersModule
     ],
-    providers: [CategoriesService, MessageService, ConfirmationService],
+    providers: [CategoriesService, MessageService, ConfirmationService, 
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: JwtInterceptor,
+        multi: true
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

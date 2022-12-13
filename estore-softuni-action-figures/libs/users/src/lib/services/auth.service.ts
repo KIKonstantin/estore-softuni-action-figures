@@ -3,6 +3,8 @@ import { environment } from '@env';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
+import { LocalStorageService } from './local-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,9 @@ import { User } from '../models/user';
 export class AuthService{
   apiURLAuth = environment.apiUrlUsers;
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private token: LocalStorageService,
+    private router: Router
   ) { }
 
   login(email: string, password: string) : Observable<User>{
@@ -18,5 +22,9 @@ export class AuthService{
       email,
       password
     })
+  }
+  logout(){
+    this.token.removeToken();
+    this.router.navigate(['/login']);
   }
 }

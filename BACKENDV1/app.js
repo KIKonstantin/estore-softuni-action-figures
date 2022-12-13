@@ -17,7 +17,7 @@ app.options("*", cors);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // USER AUTHORIZATION 
-// app.use(authJwt()); 
+app.use(authJwt());
 app.use(morgan("tiny"));
 app.use("/public/uploads", express.static(path.join(__dirname, '/public/uploads')));
 

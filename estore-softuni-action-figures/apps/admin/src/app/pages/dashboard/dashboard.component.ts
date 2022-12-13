@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrdersService } from '@estore/orders';
 import { ProductService } from '@estore/products';
 import { UsersService } from '@estore/users';
@@ -18,10 +19,12 @@ export class DashboardComponent implements OnInit {
     constructor(
         private usersService: UsersService,
         private productService: ProductService,
-        private orderService: OrdersService
+        private orderService: OrdersService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
+        this.router.navigate(['/dashboard']);
         this._getStatistics();
     }
     _getStatistics() {

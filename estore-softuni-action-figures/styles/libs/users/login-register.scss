@@ -5,8 +5,9 @@
     justify-content: center;
     align-items: center;
     &-panel {
-        width: 650px;
-        height: 525px;
+        box-shadow: 11px -3px 63px 5px rgba(255, 255, 255, 0.57);
+        width: 700px;
+        height: 575px;
         background-color: var(--surface-a);
         border-radius: 24px;
         .full-btn {
@@ -14,8 +15,8 @@
         }
     }
     img {
-        transform: translate(0%, 30%);
         width: 100%;
+        transform: translateY(10%);
         border-right: 1px solid grey;
     }
 }
