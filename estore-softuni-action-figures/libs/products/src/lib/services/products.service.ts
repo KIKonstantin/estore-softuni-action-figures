@@ -21,7 +21,6 @@ export class ProductService {
   }
 
   createProduct(productData: FormData): Observable<Product> {
-    console.log(productData)
     return this.http.post<Product>(`${environment.apiUrlProduct}`, productData);
   }
   updateProduct(product: FormData, productId: string): Observable<Product> {

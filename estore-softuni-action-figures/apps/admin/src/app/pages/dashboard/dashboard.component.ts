@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { OrdersService } from '@estore/orders';
 import { ProductService } from '@estore/products';
 import { UsersService } from '@estore/users';
-import { combineLatest } from 'rxjs';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({

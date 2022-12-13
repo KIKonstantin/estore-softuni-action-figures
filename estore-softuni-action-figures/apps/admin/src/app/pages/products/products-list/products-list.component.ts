@@ -20,7 +20,6 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     }
     private _getProducts() {
         this.productsService.getProducts().pipe(takeUntil(this.endsubs$)).subscribe(p => {
-            console.log('this is p ',p)
             this.products = p;
         })
     }

@@ -52,7 +52,6 @@ export class OrdersDetailComponent implements OnInit{
                 if(p['id']){
                     this.orderService.getOrder(p['id']).subscribe(o => {
                         this.order = o;
-                        console.log(o.status)
                         this.selectedStatus = o.status;
                     });
                 }

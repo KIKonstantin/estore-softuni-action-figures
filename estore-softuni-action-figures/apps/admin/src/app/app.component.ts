@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
     selector: 'admin-root',
     templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class AppComponent{
     title = 'admin';
+
 }

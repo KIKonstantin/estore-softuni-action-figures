@@ -34,7 +34,6 @@ export class OrdersListComponent implements OnInit, OnDestroy {
     _getOrders() {
         this.ordersService.getOrders().pipe(takeUntil(this.endsubs$)).subscribe(o => {
             this.orders = o;
-            console.log(o)
         })
     }
     deleteOrder(orderId: string){
