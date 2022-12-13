@@ -54,7 +54,6 @@ router.get("/get/count", async(req, res) => {
             success: false,
         });
     }
-
     res.send({
         productCount,
     });

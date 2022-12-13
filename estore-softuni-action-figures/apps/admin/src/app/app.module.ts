@@ -40,12 +40,18 @@ import { OrdersListComponent } from './pages/orders/orders-list/orders-list.comp
 import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { AuthGuard, UsersModule } from '@estore/users';
 
 const routes: Routes = [
     {
         path: '',
         component: ShellComponent,
+        canActivate:[AuthGuard],
         children: [
+            {
+                path: '',
+                component: DashboardComponent
+            },
             {
                 path: 'dashboard',
                 component: DashboardComponent
@@ -136,7 +142,8 @@ const routes: Routes = [
         TagModule,
         InputMaskModule,
         FieldsetModule,
-        ProgressSpinnerModule
+        ProgressSpinnerModule,
+        UsersModule
     ],
     providers: [CategoriesService, MessageService, ConfirmationService],
     bootstrap: [AppComponent]

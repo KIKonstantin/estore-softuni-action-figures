@@ -41,6 +41,10 @@ export class UsersService{
     }
     getCountry(countryKey: string): string{
     return contriesList.getName(countryKey, 'en');
-
+    }
+    getUsersCount(): Observable<{userCount: number }> {
+        return this.http.
+        get<{userCount: number }>(`${environment.apiUrlUsers}get/count`)
+        .pipe();
     }
 }

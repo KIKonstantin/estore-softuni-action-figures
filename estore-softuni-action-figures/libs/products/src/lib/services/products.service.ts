@@ -30,7 +30,11 @@ export class ProductService {
   deleteProduct(productId: string): Observable<string> {
     return this.http.delete<string>(`${environment.apiUrlProduct}${productId}`);
   }
-
+  getProductsCount(): Observable<{productCount: number }>{
+    return this .http
+    .get<{productCount: number }>(`${environment.apiUrlProduct}get/count`)
+    .pipe();
+  }
 }
 
 
