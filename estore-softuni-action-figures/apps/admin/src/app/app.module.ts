@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
-// import { appRoutes } from './app.routes';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -23,7 +21,6 @@ import { ProductsFormComponent } from './pages/products/products-form/products-f
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 // Services
 import { CategoriesService } from '@estore/products';
-
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ColorPickerModule } from 'primeng/colorpicker';
@@ -40,65 +37,10 @@ import { OrdersListComponent } from './pages/orders/orders-list/orders-list.comp
 import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import { AuthGuard, JwtInterceptor, UsersModule } from '@estore/users';
+import { JwtInterceptor, UsersModule } from '@estore/users';
+import { AppRoutingModule } from './app-routing.module';
 
-const routes: Routes = [
-    {
-        path: '',
-        component: ShellComponent,
-        canActivate:[AuthGuard],
-        children: [
-            {
-                path: '',
-                component: DashboardComponent
-            },
-            {
-                path: 'categories',
-                component: CategoriesTableComponent
-            },
-            {
-                path: 'categories/form',
-                component: CategoriesFormComponent
-            },
-            {
-                path: 'categories/form/:id',
-                component: CategoriesFormComponent
-            },
-            {
-                path: 'products',
-                component: ProductsListComponent
-            },
-            {
-                path: 'products/form',
-                component: ProductsFormComponent
-            },
-            {
-                path: 'products/form/:id',
-                component: ProductsFormComponent
-            },
-            {
-                path: 'users',
-                component: UsersListComponent
-            },
-            {
-                path: 'users/form',
-                component: UsersFormComponent
-            },
-            {
-                path: 'users/form/:id',
-                component: UsersFormComponent
-            },
-            {
-                path: 'orders',
-                component: OrdersListComponent
-            },
-            {
-                path: 'orders/:id',
-                component: OrdersDetailComponent
-            }
-        ]
-    }
-];
+
 
 @NgModule({
     declarations: [
@@ -119,7 +61,6 @@ const routes: Routes = [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
         CardModule,
         ToolbarModule,
         ButtonModule,
@@ -139,7 +80,8 @@ const routes: Routes = [
         InputMaskModule,
         FieldsetModule,
         ProgressSpinnerModule,
-        UsersModule
+        UsersModule,
+        AppRoutingModule
     ],
     providers: [CategoriesService, MessageService, ConfirmationService, 
     {

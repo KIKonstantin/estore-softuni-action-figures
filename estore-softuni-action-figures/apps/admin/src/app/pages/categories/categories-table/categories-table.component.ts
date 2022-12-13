@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category, CategoriesService } from '@estore/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Subject, takeUntil } from 'rxjs';
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'estore-categories-table',
@@ -9,10 +10,10 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     styles: []
 })
 
-export class CategoriesTableComponent implements OnInit {
+export class CategoriesTableComponent implements OnInit, OnDestroy {
 
     categories: Category[] = [];
-
+    endsubs$ : Subject<any> = new Subject();
     constructor(
         private categoryService: CategoriesService, 
         private messageService: MessageService,
@@ -24,6 +25,10 @@ export class CategoriesTableComponent implements OnInit {
     ngOnInit(): void {
         this._getCategories();
     }
+    ngOnDestroy(): void {
+        this.endsubs$.complete();
+    }
+
     deleteCategory(categoryId: string) {
             this.confirmationService.confirm({
                 message: 'Are you sure you want to delete this category?',
@@ -49,7 +54,7 @@ export class CategoriesTableComponent implements OnInit {
         }
 
  private _getCategories(){
-    this.categoryService.getCategories().subscribe(c => {
+    this.categoryService.getCategories().pipe(takeUntil(this.endsubs$)).subscribe(c => {
         this.categories = c;
     })
  }   

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { User, UsersService } from '@estore/users';
+import { Subject, takeUntil } from 'rxjs';
 
 
 @Component({
@@ -9,8 +10,10 @@ import { User, UsersService } from '@estore/users';
     templateUrl: './users-list.component.html',
     styles: []
 })
-export class UsersListComponent implements OnInit{
+export class UsersListComponent implements OnInit, OnDestroy{
     users: User[] = [];
+    endsubs$ : Subject<any> = new Subject();
+
     constructor(
         private router: Router,
         private confirmationService: ConfirmationService,
@@ -22,9 +25,12 @@ export class UsersListComponent implements OnInit{
     ngOnInit(): void {
         this._getUsers();
     }
+    ngOnDestroy(): void {
+        this.endsubs$.complete();
+    }
 
     _getUsers(){
-        this.usersService.getUsers().subscribe(u => {
+        this.usersService.getUsers().pipe(takeUntil(this.endsubs$)).subscribe(u => {
             this.users = u;
         })
     }
@@ -35,7 +41,7 @@ export class UsersListComponent implements OnInit{
             header: 'Delete User',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
-                this.usersService.deleteUser(userId).subscribe(
+                this.usersService.deleteUser(userId).pipe(takeUntil(this.endsubs$)).subscribe(
                     ()=> {
                         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'User is successfuly deleted' });
                     },
