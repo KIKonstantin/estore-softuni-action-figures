@@ -1,83 +1,83 @@
 {
-    "name": "ng-kik-store-su",
-    "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "projectType": "application",
-    "sourceRoot": "apps/ng-kik-store-su/src",
-    "prefix": "estore-softuni-action-figures",
-    "targets": {
-        "build": {
-            "executor": "@angular-devkit/build-angular:browser",
-            "outputs": ["{options.outputPath}"],
-            "options": {
-                "outputPath": "dist/apps/ng-kik-store-su",
-                "index": "apps/ng-kik-store-su/src/index.html",
-                "main": "apps/ng-kik-store-su/src/main.ts",
-                "polyfills": ["zone.js"],
-                "tsConfig": "apps/ng-kik-store-su/tsconfig.app.json",
-                "inlineStyleLanguage": "scss",
-                "assets": ["apps/ng-kik-store-su/src/favicon.ico", "apps/ng-kik-store-su/src/assets"],
-                "styles": ["apps/ng-kik-store-su/src/styles.scss"],
-                "scripts": []
-            },
-            "configurations": {
-                "production": {
-                    "budgets": [
-                        {
-                            "type": "initial",
-                            "maximumWarning": "500kb",
-                            "maximumError": "1mb"
-                        },
-                        {
-                            "type": "anyComponentStyle",
-                            "maximumWarning": "2kb",
-                            "maximumError": "4kb"
-                        }
-                    ],
-                    "outputHashing": "all"
-                },
-                "development": {
-                    "buildOptimizer": false,
-                    "optimization": false,
-                    "vendorChunk": true,
-                    "extractLicenses": false,
-                    "sourceMap": true,
-                    "namedChunks": true
-                }
-            },
-            "defaultConfiguration": "production"
-        },
-        "serve": {
-            "executor": "@angular-devkit/build-angular:dev-server",
-            "configurations": {
-                "production": {
-                    "browserTarget": "ng-kik-store-su:build:production"
-                },
-                "development": {
-                    "browserTarget": "ng-kik-store-su:build:development"
-                }
-            },
-            "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-            "executor": "@angular-devkit/build-angular:extract-i18n",
-            "options": {
-                "browserTarget": "ng-kik-store-su:build"
-            }
-        },
-        "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-                "lintFilePatterns": ["apps/ng-kik-store-su/**/*.ts", "apps/ng-kik-store-su/**/*.html"]
-            }
-        },
-        "test": {
-            "executor": "@nrwl/jest:jest",
-            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-            "options": {
-                "jestConfig": "apps/ng-kik-store-su/jest.config.ts",
-                "passWithNoTests": true
-            }
-        }
-    },
-    "tags": []
+	"name": "ng-kik-store-su",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"sourceRoot": "apps/ng-kik-store-su/src",
+	"prefix": "estore",
+	"targets": {
+		"build": {
+			"executor": "@angular-devkit/build-angular:browser",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/ng-kik-store-su",
+				"index": "apps/ng-kik-store-su/src/index.html",
+				"main": "apps/ng-kik-store-su/src/main.ts",
+				"polyfills": ["zone.js"],
+				"tsConfig": "apps/ng-kik-store-su/tsconfig.app.json",
+				"inlineStyleLanguage": "scss",
+				"assets": ["apps/ng-kik-store-su/src/favicon.ico", "apps/ng-kik-store-su/src/assets"],
+				"styles": ["apps/ng-kik-store-su/src/styles.scss"],
+				"scripts": []
+			},
+			"configurations": {
+				"production": {
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "500kb",
+							"maximumError": "1mb"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "2kb",
+							"maximumError": "4kb"
+						}
+					],
+					"outputHashing": "all"
+				},
+				"development": {
+					"buildOptimizer": false,
+					"optimization": false,
+					"vendorChunk": true,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"namedChunks": true
+				}
+			},
+			"defaultConfiguration": "production"
+		},
+		"serve": {
+			"executor": "@angular-devkit/build-angular:dev-server",
+			"configurations": {
+				"production": {
+					"browserTarget": "ng-kik-store-su:build:production"
+				},
+				"development": {
+					"browserTarget": "ng-kik-store-su:build:development"
+				}
+			},
+			"defaultConfiguration": "development"
+		},
+		"extract-i18n": {
+			"executor": "@angular-devkit/build-angular:extract-i18n",
+			"options": {
+				"browserTarget": "ng-kik-store-su:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"options": {
+				"lintFilePatterns": ["apps/ng-kik-store-su/**/*.ts", "apps/ng-kik-store-su/**/*.html"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "apps/ng-kik-store-su/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
 }

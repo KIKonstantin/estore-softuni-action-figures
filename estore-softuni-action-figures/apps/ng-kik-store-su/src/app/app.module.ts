@@ -7,9 +7,13 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { UiModule } from '@estore/ui';
 import { AccordionModule } from 'primeng/accordion';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './shared/nav/nav.component';
+import { ProductsModule } from '@estore/products';
+import { UiModule } from '@estore-softuni-action-figures/ui';
+import {StyleClassModule} from 'primeng/styleclass';
+
 const routes: Routes = [
     {
         path: '',
@@ -22,8 +26,17 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent],
-    imports: [BrowserModule, RouterModule.forRoot(routes), UiModule, AccordionModule, BrowserAnimationsModule],
+    declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent, NavComponent],
+    imports:
+        [
+            BrowserModule,
+            RouterModule.forRoot(routes),
+            AccordionModule,
+            BrowserAnimationsModule,
+            ProductsModule,
+            UiModule,
+            StyleClassModule
+        ],
     providers: [],
     bootstrap: [AppComponent]
 })

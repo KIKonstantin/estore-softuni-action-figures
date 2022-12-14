@@ -1,18 +1,28 @@
 // BASE
+@import '~normalize.css/normalize.css';
 @import './base/colors.scss';
 @import './base/fonts.scss';
 @import './base/mixins.scss';
-@import './base/config.scss';
 // Libraries
 @import '~primeicons/primeicons.css';
 @import '~primeng/resources/themes/lara-light-blue/theme.css';
 @import '~primeng/resources/primeng.min.css';
 @import '~primeflex/primeflex.css';
+@import '~animate.css/animate.css';
+@import './base/config.scss';
 // Pages
 @import './estore/pages/homepage.scss';
 @import './estore/pages/products-list-page.scss';
 // Shared  
 @import './estore/shared/header.scss';
 @import './estore/shared/footer.scss';
+@import './estore/shared/nav.scss';
 // libs
+@import './libs/products/products.scss';
 @import './libs/ui/ui.scss';
+.container {
+    width: 1200px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: var(--surface-100);
+}

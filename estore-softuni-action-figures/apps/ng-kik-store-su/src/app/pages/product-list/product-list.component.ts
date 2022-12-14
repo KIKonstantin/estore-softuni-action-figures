@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'estore-product-list',
     templateUrl: './product-list.component.html',
-    styleUrls: ['./product-list.component.scss']
+    styleUrls: []
 })
 export class ProductListComponent {}

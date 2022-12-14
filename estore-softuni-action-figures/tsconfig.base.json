@@ -1,27 +1,27 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "noPropertyAccessFromIndexSignature": false,
-        "rootDir": ".",
-        "sourceMap": true,
-        "declaration": false,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "target": "es2015",
-        "module": "esnext",
-        "lib": ["es2017", "dom"],
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
-        "baseUrl": ".",
-        "paths": {
-            "@env": ["./environments/environment.ts"],
-            "@estore/orders": ["libs/orders/src/index.ts"],
-            "@estore/products": ["libs/products/src/index.ts"],
-            "@estore/ui": ["libs/ui/src/index.ts"],
-            "@estore/users": ["libs/users/src/index.ts"]
-        }
-    },
-    "exclude": ["node_modules", "tmp"]
+	"compileOnSave": false,
+	"compilerOptions": {
+		"noPropertyAccessFromIndexSignature": false,
+		"rootDir": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"target": "es2015",
+		"module": "esnext",
+		"lib": ["es2017", "dom"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@env": ["./environments/environment.ts"],
+			"@estore-softuni-action-figures/ui": ["libs/ui/src/index.ts"],
+			"@estore/orders": ["libs/orders/src/index.ts"],
+			"@estore/products": ["libs/products/src/index.ts"],
+			"@estore/users": ["libs/users/src/index.ts"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"]
 }
