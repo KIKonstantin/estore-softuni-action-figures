@@ -19,7 +19,6 @@ export class SidebarComponent implements OnInit{
     if( this.username === 'guest'){
         this.username = this.localStorageService.getUserName();
         this.username = this.username.split('@')[0] + '@';
-        console.log('hey')
     }
  }
  logoutUser() {

@@ -1,0 +1,17 @@
+footer {
+    background-color: #FFECAD;
+    min-height: 10vh;
+    padding: 10px 25px;
+    width: 100%;
+    margin-top: 25px;
+    .footer-wrapper {
+        align-items: center;
+        .social {
+            margin-top: 15px;
+            text-align: right;
+            .nav {
+                justify-content: flex-end;
+            }
+        }
+    }
+}

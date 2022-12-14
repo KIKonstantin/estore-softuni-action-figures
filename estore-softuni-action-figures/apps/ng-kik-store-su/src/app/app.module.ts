@@ -13,7 +13,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { ProductsModule } from '@estore/products';
 import { UiModule } from '@estore-softuni-action-figures/ui';
 import {StyleClassModule} from 'primeng/styleclass';
-
+import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
     {
         path: '',
@@ -35,7 +35,8 @@ const routes: Routes = [
             BrowserAnimationsModule,
             ProductsModule,
             UiModule,
-            StyleClassModule
+            StyleClassModule,
+            HttpClientModule
         ],
     providers: [],
     bootstrap: [AppComponent]
