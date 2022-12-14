@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { takeUntil } from 'rxjs';
 import { Category } from '../../models/category';
 import { Product } from '../../models/product';
 import { CategoriesService } from '../../services/categories.service';
