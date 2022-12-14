@@ -5,6 +5,7 @@ import { CategoriesService, Category, Product, ProductService } from '@estore/pr
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 import { Location } from '@angular/common';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
     selector: 'admin-products-form',
@@ -19,6 +20,22 @@ export class ProductsFormComponent implements OnInit {
     categories: Category[] = [];
     imageDisplay!: any;
 
+    editorConfig: AngularEditorConfig = {
+        editable: true,
+        spellcheck: true,
+        height: '250px',
+        minHeight: '100',
+        maxHeight: 'auto',
+        width: 'auto',
+        minWidth: '0',
+        translate: 'yes',
+        enableToolbar: true,
+        showToolbar: true,
+        placeholder: 'Fill in rich description here...',
+        sanitize: true,
+        toolbarPosition: 'top',
+        toolbarHiddenButtons: []
+    };
 
     constructor(
         private productService: ProductService,
@@ -39,11 +56,11 @@ export class ProductsFormComponent implements OnInit {
         if (this.form.invalid) return;
         const productFormData = new FormData();
         Object.keys(this.productForm).map(k => {
-        productFormData.append(k, this.productForm[k].value);
+            productFormData.append(k, this.productForm[k].value);
         });
-        if(this.editMode){
+        if (this.editMode) {
             this._updateProduct(productFormData);
-        }else{
+        } else {
             this._addProduct(productFormData);
         }
     }
@@ -51,7 +68,7 @@ export class ProductsFormComponent implements OnInit {
     onImageUpload(event: any) {
         const file = event.target.files[0];
         if (file) {
-            this.form.patchValue({image: file});
+            this.form.patchValue({ image: file });
             this.form.get('image')?.updateValueAndValidity();
             const fileReader = new FileReader();
             fileReader.onload = () => {
@@ -103,7 +120,7 @@ export class ProductsFormComponent implements OnInit {
             this.categories = c;
         })
     }
-    private _addProduct(productData: FormData){
+    private _addProduct(productData: FormData) {
         this.productService.createProduct(productData).subscribe(
             (product: Product) => {
                 this.messageService.add({ severity: 'success', summary: 'Success', detail: `Product ${product.name} is successfuly added` });
@@ -114,7 +131,7 @@ export class ProductsFormComponent implements OnInit {
             (product: Product) => { this.messageService.add({ severity: 'error', summary: 'Error', detail: `Product ${product.name} is not successfuly added` }) })
     }
 
-    private _updateProduct(product: FormData){
+    private _updateProduct(product: FormData) {
         this.productService.updateProduct(product, this.currProductId).subscribe(
             (category: Category) => {
                 this.messageService.add({ severity: 'success', summary: 'Success', detail: `Category ${category.name} is successfuly updated` });

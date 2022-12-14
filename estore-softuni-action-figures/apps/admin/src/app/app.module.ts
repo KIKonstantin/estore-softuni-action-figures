@@ -28,7 +28,6 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
-import { EditorModule } from '@tinymce/tinymce-angular';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { TagModule } from 'primeng/tag';
@@ -39,8 +38,7 @@ import {FieldsetModule} from 'primeng/fieldset';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { JwtInterceptor, UsersModule } from '@estore/users';
 import { AppRoutingModule } from './app-routing.module';
-
-
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
     declarations: [
@@ -75,13 +73,14 @@ import { AppRoutingModule } from './app-routing.module';
         InputTextareaModule,
         InputSwitchModule,
         DropdownModule,
-        EditorModule,
         TagModule,
         InputMaskModule,
         FieldsetModule,
         ProgressSpinnerModule,
         UsersModule,
-        AppRoutingModule
+        AppRoutingModule,
+        AngularEditorModule
+        
     ],
     providers: [CategoriesService, MessageService, ConfirmationService, 
     {
