@@ -24,6 +24,9 @@ export class AuthGuard implements CanActivate  {
       this.router.navigate(['/login']);
       return false;
     }
+    
+      this.router.navigate(['/login']);
+
   }
   private _tokenExpired(expiration: number): boolean{
     return Math.floor(new Date().getTime() / 1000) >= expiration;
