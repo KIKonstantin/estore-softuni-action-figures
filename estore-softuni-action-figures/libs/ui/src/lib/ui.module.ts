@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BannerComponent } from './components/banner/banner.component';
 import { ButtonModule } from 'primeng/button';
 import {StyleClassModule} from 'primeng/styleclass';
+import { GalleryComponent } from './components/gallery/gallery.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -11,10 +12,12 @@ import {StyleClassModule} from 'primeng/styleclass';
     StyleClassModule
   ],
   declarations: [
-    BannerComponent
+    BannerComponent,
+    GalleryComponent
   ],
   exports: [
-    BannerComponent
+    BannerComponent,
+    GalleryComponent
   ]
 })
 export class UiModule { }

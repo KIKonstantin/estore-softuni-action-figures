@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import {RatingModule} from 'primeng/rating';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { UiModule } from '@estore-softuni-action-figures/ui';
 const routes: Routes = [
   {
     path: 'products',
@@ -36,7 +37,8 @@ const routes: Routes = [
       CheckboxModule,
       FormsModule,
       RatingModule,
-      InputNumberModule
+      InputNumberModule,
+      UiModule
     ],
     declarations: [
       ProductSearchComponent,
