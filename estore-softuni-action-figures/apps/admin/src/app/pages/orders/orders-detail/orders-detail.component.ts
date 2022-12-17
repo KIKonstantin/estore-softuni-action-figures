@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Order, OrdersService } from '@estore/orders';
+import { Order, OrdersService, ORDER_STATUS } from '@estore/orders';
 import { ActivatedRoute } from '@angular/router';
-import { ORDER_STATUS } from '../order.constants';
 import { MessageService } from 'primeng/api';
 @Component({
     selector: 'admin-orders-detail',

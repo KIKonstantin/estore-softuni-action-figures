@@ -8,25 +8,44 @@ import { RouterModule, Routes } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { OrderSummaryComponent } from './lib/order-summary/order-summary.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckoutPageComponent } from './lib/pages/checkout-page/checkout-page.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DropdownModule } from 'primeng/dropdown';
+import { ThankYouPageComponent } from './lib/pages/thank-you-page/thank-you-page.component';
 const routes: Routes = [
   {
     path: 'cart',
     component: CartPageComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutPageComponent
+  },
+  {
+    path: 'success',
+    component: ThankYouPageComponent
   }
 ]
 
 @NgModule({
-    imports: [CommonModule, BadgeModule, RouterModule.forChild(routes), ButtonModule, InputNumberModule, FormsModule],
+    imports: [CommonModule, BadgeModule, RouterModule.forChild(routes), ButtonModule, InputNumberModule, FormsModule, InputTextModule,
+      InputMaskModule,
+      DropdownModule,
+      ReactiveFormsModule,
+    ],
     declarations: [
       CartBadgeComponent,
       CartPageComponent,
-      OrderSummaryComponent
+      OrderSummaryComponent,
+      CheckoutPageComponent,
+      ThankYouPageComponent
     ],
     exports: [
       CartBadgeComponent,
       CartPageComponent,
-      OrderSummaryComponent
+      OrderSummaryComponent,
     ]
 })
 export class OrdersModule {

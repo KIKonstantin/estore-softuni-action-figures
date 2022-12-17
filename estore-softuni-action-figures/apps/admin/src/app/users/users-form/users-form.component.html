@@ -12,8 +12,8 @@
                 </p-toolbar>
             </div>
         </div>
-        <div class="p-grid">
-            <div class="p-col-12">
+        <div class="grid">
+            <div class="col-12">
                 <!-- Reactive Form -->
                 <form [formGroup]="form">
                     <div class="card">
@@ -40,16 +40,23 @@
                         </div>
                         <div class="formgrid grid">
                             <div class="field col">
-                                <label for="phone">Phone</label><br>
-                                <p-inputMask formControlName="phone" mask="(+359) 999 99 9999"></p-inputMask>
-                                <small *ngIf="userForm['phone'].invalid && isSubmitted" class="p-error">Phone is required</small>
-                            </div>
-                            <div class="field col-4">
                                 <label for="isAdmin">Is Admin</label><br />
                                 <p-inputSwitch formControlName="isAdmin"></p-inputSwitch>
                             </div>
+                            <div class="field col">
+                                <label for="country">Country</label><br>
+                                <p-dropdown [options]="countries" formControlName="country" optionLabel="country" optionValue="id" [filter]="true" filterBy="country" [showClear]="true" placeholder="Select a Country"></p-dropdown>
+                            </div>
+                            <div class="field col">
+                                <label for="city">City</label>
+                                <input formControlName="city" id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                            </div>
                         </div>
                         <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="zip">Zip</label>
+                                <input formControlName="zip" id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                            </div>
                             <div class="field col">
                                 <label for="street">Street</label>
                                 <input formControlName="street" id="street" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
@@ -58,18 +65,12 @@
                                 <label for="apartment">Apartment</label>
                                 <input formControlName="apartment" id="apartment" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
                             </div>
+                        </div>
+                        <div class="formgrid grid">
                             <div class="field col">
-                                <label for="city">City</label>
-                                <input formControlName="city" id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
-                            </div>
-                            <div class="field col">
-                                <label for="zip">Zip</label>
-                                <input formControlName="zip" id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
-                            </div>
-                            <div class="field col">
-                                <label for="country">Country</label><br>
-                                <p-dropdown [options]="countries" formControlName="country" optionLabel="country" optionValue="id" [filter]="true" filterBy="country" [showClear]="true" placeholder="Select a Country"></p-dropdown>
-
+                                <label for="phone">Phone</label><br>
+                                <p-inputMask formControlName="phone" mask="(+359) 999 99 9999"></p-inputMask>
+                                <small *ngIf="userForm['phone'].invalid && isSubmitted" class="p-error">Phone is required</small>
                             </div>
                         </div>
                     </div>

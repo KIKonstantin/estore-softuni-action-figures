@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 import { CartItemDetailed } from '../../models/cart';
 import { CartService } from '../../services/cart.service';
 import { OrdersService } from '../../services/orders.service';
-import { Subject, takeUntil } from 'rxjs'
+import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'orders-cart-page',
   templateUrl: './cart-page.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class CartPageComponent implements OnInit, OnDestroy {
   cartItemsDetailed?: CartItemDetailed[] = [];
+  
   cartCount = 0;
   endSubs$: Subject<any> = new Subject();
   constructor(
@@ -48,7 +48,7 @@ export class CartPageComponent implements OnInit, OnDestroy {
     this.cartService.deleteCartItem(cartItem.product.id);
   }
 
-  UpdateItemQuantity(event, cartItem: CartItemDetailed) {
+  UpdateItemQuantity(event: any, cartItem: CartItemDetailed) {
     this.cartService.setCartItem({
       productId: cartItem.product.id,
       quantity: event.value
