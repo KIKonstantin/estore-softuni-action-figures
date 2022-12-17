@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartItem, CartService } from '@estore/orders';
 import { Subject, takeUntil } from 'rxjs';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/products.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'products-product-detail',
@@ -14,10 +16,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   product?: Product;
   endSubs$: Subject<any> = new Subject();
-  quantity: number;
+  quantity = 1;
   constructor(
     private productsService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private messageService: MessageService
   ) { }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -36,6 +40,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     })
   }
   addProductToCart(){
-    return;
+    const cartItem : CartItem = {
+      productId : this.product._id,
+      quantity : this.quantity
+    }
+
+    this.cartService.setCartItem(cartItem);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'success',
+      detail: 'Cart updated!'
+    })  
   }
 }

@@ -13,6 +13,9 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import {RatingModule} from 'primeng/rating';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { UiModule } from '@estore-softuni-action-figures/ui';
+import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
+
 const routes: Routes = [
   {
     path: 'products',
@@ -38,7 +41,8 @@ const routes: Routes = [
       FormsModule,
       RatingModule,
       InputNumberModule,
-      UiModule
+      UiModule,
+      ToastModule,
     ],
     declarations: [
       ProductSearchComponent,
@@ -47,7 +51,9 @@ const routes: Routes = [
       FeaturedProductComponent,
       ProductsListComponent,
       ProductDetailComponent,
+      
     ],
+    providers: [MessageService],
     exports:[ProductSearchComponent, CategoriesBannerComponent, ProductItemComponent, FeaturedProductComponent, ProductDetailComponent]
 })
 export class ProductsModule {}

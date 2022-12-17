@@ -34,6 +34,9 @@ export class OrdersService {
       .get<{totalSales: number }>(`${environment.apiUrlOrders}get/totalSales`)
       .pipe();
   }
+  getProduct(productId: string): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrlProduct}${productId}`)
+}
 }
 
 

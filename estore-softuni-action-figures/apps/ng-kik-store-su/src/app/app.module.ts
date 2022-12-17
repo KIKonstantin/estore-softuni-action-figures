@@ -11,8 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './shared/nav/nav.component';
 import { ProductsModule } from '@estore/products';
 import { UiModule } from '@estore-softuni-action-figures/ui';
-import {StyleClassModule} from 'primeng/styleclass';
+import { StyleClassModule } from 'primeng/styleclass';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdersModule } from '@estore/orders';
 const routes: Routes = [
     {
         path: '',
@@ -31,9 +32,12 @@ const routes: Routes = [
             ProductsModule,
             UiModule,
             StyleClassModule,
-            HttpClientModule
+            HttpClientModule,
+            OrdersModule,
         ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    exports: [
+    ]
 })
 export class AppModule { }

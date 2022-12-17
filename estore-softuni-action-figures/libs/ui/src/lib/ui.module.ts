@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { BannerComponent } from './components/banner/banner.component';
 import { ButtonModule } from 'primeng/button';
 import {StyleClassModule} from 'primeng/styleclass';
+import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
     ButtonModule,
-    StyleClassModule
+    StyleClassModule,
+    RouterModule
   ],
   declarations: [
     BannerComponent,

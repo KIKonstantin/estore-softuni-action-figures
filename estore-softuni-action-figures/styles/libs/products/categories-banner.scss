@@ -23,5 +23,10 @@
         &-name {
             font-size: 1em;
         }
+        &:hover {
+            border: 2px solid $primary-color;
+            transition: 0.3s;
+            scale: 1.1;
+        }
     }
 }
