@@ -18,8 +18,7 @@ export class ProductsFormComponent implements OnInit {
     isSubmitted = false;
     currProductId?: any;
     categories: Category[] = [];
-    imageDisplay!: any;
-
+    imageDisplay: any;
     editorConfig: AngularEditorConfig = {
         editable: true,
         spellcheck: true,
@@ -77,6 +76,7 @@ export class ProductsFormComponent implements OnInit {
             fileReader.readAsDataURL(file);
         }
     }
+// TODO: make multiple images upload
 
     private _initForm() {
         this.form = this.formBuilder.group({
@@ -88,7 +88,7 @@ export class ProductsFormComponent implements OnInit {
             description: ['', Validators.required],
             richDescription: [''],
             image: [''],
-            isFeatured: [false],
+            isFeatured: [false]
         });
     }
 
@@ -124,7 +124,7 @@ export class ProductsFormComponent implements OnInit {
         this.productService.createProduct(productData).subscribe(
             (product: Product) => {
                 this.messageService.add({ severity: 'success', summary: 'Success', detail: `Product ${product.name} is successfuly added` });
-                timer(1500).toPromise().then(() => {
+                timer(1000).toPromise().then(() => {
                     this.location.back();
                 })
             },

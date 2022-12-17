@@ -1,7 +1,7 @@
 <div class="product-details" *ngIf="product">
     <div class="grid">
         <div class="col-6">
-            <ui-gallery [images]="product.images"></ui-gallery>
+            <img [src]="product.image" class="main-image">
         </div>
         <div class="col-6 product" *ngIf="product">
             <h2 class="product-name">{{product.name}}</h2>
