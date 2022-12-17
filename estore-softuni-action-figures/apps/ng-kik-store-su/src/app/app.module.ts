@@ -12,8 +12,11 @@ import { NavComponent } from './shared/nav/nav.component';
 import { ProductsModule } from '@estore/products';
 import { UiModule } from '@estore-softuni-action-figures/ui';
 import { StyleClassModule } from 'primeng/styleclass';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OrdersModule } from '@estore/orders';
+import { JwtInterceptor, UsersModule } from '@estore/users';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 const routes: Routes = [
     {
         path: '',
@@ -34,8 +37,13 @@ const routes: Routes = [
             StyleClassModule,
             HttpClientModule,
             OrdersModule,
+            UsersModule,
+            StoreModule.forRoot({}),
+            EffectsModule.forRoot([])
         ],
-    providers: [],
+    providers: [{
+        provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
+    }],
     bootstrap: [AppComponent],
     exports: [
     ]

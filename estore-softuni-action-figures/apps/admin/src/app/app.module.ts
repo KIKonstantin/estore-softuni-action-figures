@@ -39,6 +39,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { JwtInterceptor, UsersModule } from '@estore/users';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
     declarations: [
@@ -59,6 +61,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
         CardModule,
         ToolbarModule,
         ButtonModule,

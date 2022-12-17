@@ -4,6 +4,7 @@ import { environment } from "@env";
 import { Observable } from "rxjs";
 import { User } from "../models/user";
 import * as contriesList from 'i18n-iso-countries'
+import { UsersFacade } from "../state/users.facade";
 declare const require : any;
 
 @Injectable({
@@ -12,7 +13,10 @@ declare const require : any;
 export class UsersService{
     apiUrlUsers = environment.apiUrlUsers
 
-    constructor(private http: HttpClient){
+    constructor(
+        private http: HttpClient,
+        private userFacade: UsersFacade
+        ){
         contriesList.registerLocale(require("i18n-iso-countries/langs/en.json"));
     }
 
@@ -46,5 +50,15 @@ export class UsersService{
         return this.http.
         get<{userCount: number }>(`${environment.apiUrlUsers}get/count`)
         .pipe();
+    }
+
+    initAppSession() {
+        this.userFacade.buildUserSession()
+    }
+    observeCurrentUser(){
+        return this.userFacade.currentUser$;
+    }
+    isCurrentUserAuth(){
+        return this.userFacade.isAuthenticated$;
     }
 }

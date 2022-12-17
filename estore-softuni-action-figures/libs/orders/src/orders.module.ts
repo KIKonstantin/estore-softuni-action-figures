@@ -14,6 +14,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 import { ThankYouPageComponent } from './lib/pages/thank-you-page/thank-you-page.component';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { AuthGuard } from '@estore/users';
 const routes: Routes = [
   {
     path: 'cart',
@@ -21,6 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'checkout',
+    canActivate: [AuthGuard],
     component: CheckoutPageComponent
   },
   {
