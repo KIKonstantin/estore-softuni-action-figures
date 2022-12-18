@@ -14,6 +14,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskModule } from 'primeng/inputmask';
 import {PasswordModule} from 'primeng/password';
+import { UsersIconComponent } from './components/users-icon/users-icon.component';
 const routes: Routes = [
     {
         path: 'login',
@@ -38,7 +39,8 @@ const routes: Routes = [
         PasswordModule,
         StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.usersReducer), 
         EffectsModule.forFeature([UsersEffects])],
-    declarations: [LoginComponent, RegisterComponent],
+    declarations: [LoginComponent, RegisterComponent, UsersIconComponent],
+    exports: [UsersIconComponent],
     providers: [UsersFacade]
 })
 export class UsersModule { }

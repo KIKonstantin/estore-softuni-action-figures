@@ -18,6 +18,7 @@ import { JwtInterceptor, UsersModule } from '@estore/users';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -31,26 +32,24 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, ContactPageComponent],
-    imports:
-        [
-            BrowserModule,
-            RouterModule.forRoot(routes),
-            AccordionModule,
-            BrowserAnimationsModule,
-            ProductsModule,
-            UiModule,
-            StyleClassModule,
-            HttpClientModule,
-            OrdersModule,
-            UsersModule,
-            StoreModule.forRoot({}),
-            EffectsModule.forRoot([])
-        ],
     providers: [{
-        provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
-    }],
+            provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
+        }],
     bootstrap: [AppComponent],
-    exports: [
+    exports: [],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes),
+        AccordionModule,
+        BrowserAnimationsModule,
+        ProductsModule,
+        UiModule,
+        StyleClassModule,
+        HttpClientModule,
+        OrdersModule,
+        UsersModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
     ]
 })
 export class AppModule { }
