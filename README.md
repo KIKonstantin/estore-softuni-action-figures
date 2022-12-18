@@ -20,8 +20,11 @@ To get started with the application, follow these steps:
 
 API documentation
 
-The API documentation can be found in the API.md file in the root directory of the repository. This documentation includes information on the available endpoints and their respective request and response formats.
-Contributing
+The API for the Softuni Prime Figures application exposes a number of endpoints for managing orders, products, users, and categories. These endpoints allow you to perform GET, POST, PUT, and DELETE requests as appropriate.
+
+The API uses JSON web tokens for authentication. To access protected routes, a valid token must be provided in the Authorization header of the request.
+
+Passwords are hashed using bcrypt to help increase the security of the application.
 
 If you would like to contribute to the project, please follow these guidelines:
 
