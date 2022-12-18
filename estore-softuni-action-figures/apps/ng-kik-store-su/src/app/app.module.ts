@@ -17,15 +17,20 @@ import { OrdersModule } from '@estore/orders';
 import { JwtInterceptor, UsersModule } from '@estore/users';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 const routes: Routes = [
     {
         path: '',
-        component: HomePageComponent
+        component: HomePageComponent,
+    },
+    {
+        path: 'contact-page',
+        component: ContactPageComponent,
     }
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent, ContactPageComponent],
     imports:
         [
             BrowserModule,

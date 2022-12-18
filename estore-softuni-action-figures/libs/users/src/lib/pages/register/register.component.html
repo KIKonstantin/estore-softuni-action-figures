@@ -1,0 +1,76 @@
+<div class="register">
+    <div class="register-panel">
+        <div class="grid form">
+            <div class="col">
+                <h3>Welcome</h3>
+                <h2>Register Page</h2>
+                <form [formGroup]="registerFormGroup">
+                    <div class="card">
+                        <div class="grid fluid">
+                            <div class="field col-4">
+                                <label for="name">Name</label>
+                                <input formControlName="name" id="name" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="registerForm['name'].invalid && isSubmitted" class="p-error">Name is required</small>
+                            </div>
+                            <div class="field col-4">
+                                <label for="email">Email</label>
+                                <input formControlName="email" id="email" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="registerForm['email'].invalid && isSubmitted" class="p-error">
+                                            <span *ngIf="registerForm['email'].errors?.['required']">Email is required</span>
+                                            <span *ngIf="registerForm['email'].errors?.['email']">Email is invalid</span>
+                                        </small>
+                            </div>
+                            <div class="field col-4">
+                                <label for="password">Password</label><br>
+                                <p-password formControlName="password" [toggleMask]="true"></p-password>
+                                <small *ngIf="registerForm['password'].invalid && isSubmitted" class="p-error">Password is required</small>
+                            </div>
+                            <div class="field col-4">
+                                <label for="phone">Phone</label><br>
+                                <p-inputMask formControlName="phone" mask="(+359) 9999 999 999"></p-inputMask>
+                                <small *ngIf="registerForm['phone'].invalid && isSubmitted" class="p-error">Phone is required</small>
+                            </div>
+
+                        </div>
+                        <div class="grid fluid">
+
+                            <div class="field col-4">
+                                <label for="street">Street</label>
+                                <input formControlName="street" id="street" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="registerForm['street'].invalid && isSubmitted" class="p-error">Steet is required</small>
+                            </div>
+                            <div class="field col-4">
+                                <label for="apartment">Apartment</label>
+                                <input formControlName="apartment" id="apartment" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="registerForm['apartment'].invalid && isSubmitted" class="p-error">Apartment is required</small>
+                            </div>
+                            <div class="field col-4">
+                                <label for="city">City</label>
+                                <input formControlName="city" id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="registerForm['city'].invalid && isSubmitted" class="p-error">City is required</small>
+                            </div>
+
+                        </div>
+                        <div class="grid fluid">
+
+                            <div class="field col-4">
+                                <label for="zip">Zip</label>
+                                <input formControlName="zip" id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                                <small *ngIf="registerForm['zip'].invalid && isSubmitted" class="p-error">Zip is required</small>
+                            </div>
+                            <div class="field col-4">
+                                <label for="country">Country</label><br>
+                                <p-dropdown [options]="countries" formControlName="country" optionLabel="country" optionValue="id" [filter]="true" filterBy="country" [showClear]="true" placeholder="Select a Country"></p-dropdown>
+                                <small *ngIf="registerForm['country'].invalid && isSubmitted" class="p-error">Country is required</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="col-12">
+                    <p-button type="button" label="Register" styleClass="full-btn" (onClick)="onSubmit()"></p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

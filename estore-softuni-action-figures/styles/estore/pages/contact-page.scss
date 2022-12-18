@@ -1,0 +1,31 @@
+.contact-page {
+    max-width: 80%;
+    min-height: 500px;
+    padding: 15px;
+    margin-top: 50px;
+    margin-left: 100px;
+    ;
+    h1 {
+        text-align: center;
+        font-size: 2em;
+        color: var(--surface-700);
+        margin: 20px 0;
+        margin-bottom: 50px;
+    }
+    p {
+        span {
+            color: $primary-color;
+        }
+        font-size: 1.1em;
+        line-height: 1.5;
+        margin: 20px 0;
+        text-align: justify;
+    }
+    a {
+        color: $primary-color;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}

@@ -10,11 +10,20 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromUsers from './state/users.reducer';
 import { UsersEffects } from './state/users.effects';
 import { UsersFacade } from './state/users.facade';
+import { RegisterComponent } from './pages/register/register.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputMaskModule } from 'primeng/inputmask';
+import {PasswordModule} from 'primeng/password';
 const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     }
+    
 ]
 
 @NgModule({
@@ -23,10 +32,13 @@ const routes: Routes = [
         InputTextModule, 
         ButtonModule, 
         FormsModule, 
+        DropdownModule,
         ReactiveFormsModule, 
+        InputMaskModule,
+        PasswordModule,
         StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.usersReducer), 
         EffectsModule.forFeature([UsersEffects])],
-    declarations: [LoginComponent],
+    declarations: [LoginComponent, RegisterComponent],
     providers: [UsersFacade]
 })
 export class UsersModule { }
