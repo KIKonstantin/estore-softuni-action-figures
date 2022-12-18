@@ -1,8 +1,11 @@
-<div class="pi dropdown-users" (click)="showNav()">
+<div class="pi dropdown-users">
     <i class="pi pi-user"></i>
-    <div class="dropdown-content" id="dropdown-content">
-        <a routerLink="/profile">Profile</a>
+    <div class="dropdown-content" *ngIf="!isLogged">
         <a routerLink="/login">Login</a>
         <a routerLink="/register">Register</a>
+    </div>
+    <div class="dropdown-content" *ngIf="isLogged">
+        <a routerLink="/profile">Profile</a>
+        <a (click)="logout()">Logout</a>
     </div>
 </div>

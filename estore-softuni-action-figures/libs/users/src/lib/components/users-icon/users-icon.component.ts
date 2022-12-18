@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { UsersService } from '../../services/user.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -8,16 +11,22 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class UsersIconComponent implements OnInit {
-  // display = document.getElementById('dropdown-content').style.display;
- 
-  ngOnInit(): void {
-  return;//     this.display = 'none'
+  isLogged = this.localstorageService.checkuserSession();
+  token: string;
+
+  constructor(
+    private localstorageService: LocalStorageService,
+    private usersService: UsersService,
+    private router: Router
+  ) { }
+
+ngOnInit(): void {
+  this.isLogged = this.localstorageService.checkuserSession();
+}
+  logout() {
+    this.localstorageService.removeToken();
+    this.isLogged = this.localstorageService.checkuserSession();
   }
-  showNav(){
-  //   if(this.display == 'none'){
-  //     this.display = 'block'
-  //   }else{
-  //     this.display = 'none'
-  //   }
-  }
+
+
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@estore/users';
+import { badGatewayComponent } from '@estore/ui';
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { CategoriesTableComponent } from './pages/categories/categories-table/categories-table.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -70,8 +71,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '404',
-        pathMatch: 'full'
+        component: badGatewayComponent
     }
 ];
 

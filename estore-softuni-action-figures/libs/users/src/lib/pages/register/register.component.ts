@@ -81,6 +81,7 @@ export class RegisterComponent implements OnInit {
         this.localStorageService.setUserName(registerData.email);
         this.localStorageService.setToken(user.token);
         this.router.navigate(['/']);
+        setTimeout(() => window.location.reload(), 1000);
       },
       (error: HttpErrorResponse) => {
         this.authError = true;

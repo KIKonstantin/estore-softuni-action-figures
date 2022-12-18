@@ -6,14 +6,14 @@ import { UsersService } from '@estore/users';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
+  title = 'SU Prime Figures';
   constructor(
     private usersService: UsersService
   ){
-
+    
   }
   ngOnInit(): void {
       this.usersService.initAppSession();
   }
 
-  title = 'SU Prime Figures';
 }

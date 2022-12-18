@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
             this.localStorageService.setUserName(loginData.email);
             this.localStorageService.setToken(user.token);
             this.router.navigate(['/']);
+            setTimeout(() => window.location.reload(), 1000);
             },
         (error: HttpErrorResponse) => {
             this.authError = true;

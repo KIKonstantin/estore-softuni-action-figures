@@ -17,7 +17,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@env": ["./environments/environment.ts"],
-			"@estore-softuni-action-figures/ui": ["libs/ui/src/index.ts"],
+			"@estore/ui": ["libs/ui/src/index.ts"],
 			"@estore/orders": ["libs/orders/src/index.ts"],
 			"@estore/products": ["libs/products/src/index.ts"],
 			"@estore/users": ["libs/users/src/index.ts"]

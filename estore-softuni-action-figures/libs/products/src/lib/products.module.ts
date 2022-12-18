@@ -12,7 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import {RatingModule} from 'primeng/rating';
 import {InputNumberModule} from 'primeng/inputnumber';
-import { UiModule } from '@estore-softuni-action-figures/ui';
+import { UiModule } from '@estore/ui';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 

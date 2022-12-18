@@ -5,8 +5,6 @@ const TOKEN = 'jwtToken';
   providedIn: 'root'
 })
 export class LocalStorageService {
-
-
   setToken(data: any) {
     localStorage.setItem(TOKEN, data);
   }
@@ -43,6 +41,14 @@ export class LocalStorageService {
       }
     }else{
       return null;
+    }
+  }
+  checkuserSession(): boolean {
+    const token = this.getToken();
+    if (token) {
+      return true;
+    }else{
+      return false;
     }
   }
 
